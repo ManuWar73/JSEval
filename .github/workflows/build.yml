@@ -22,7 +22,6 @@ jobs:
           ./gradlew jar
       - name: Upload jar
         uses: actions/upload-artifact@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/libs/JSEval.jar
-          tag: ${{ github.ref }}
+          with:
+          name: ${{ github.event.repository.name }}
+          path: build/libs/${{ github.event.repository.name }}.jar
